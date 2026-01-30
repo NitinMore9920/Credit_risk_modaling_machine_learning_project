@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Risk Prediction</title>
+</head>
+<body>
+
+    <h2>Credit Risk Prediction</h2>
+
+    <form method="post" action="/predict_ui">
+
+        <label>Total TL:</label><br>
+        <input type="number" name="Total_TL" required><br><br>
+
+        <label>Total Active TL:</label><br>
+        <input type="number" name="Tot_Active_TL" required><br><br>
+
+        <label>Total Closed TL:</label><br>
+        <input type="number" name="Tot_Closed_TL" required><br><br>
+
+        <label>Age Oldest TL (months):</label><br>
+        <input type="number" name="Age_Oldest_TL" required><br><br>
+
+        <label>Age Newest TL (months):</label><br>
+        <input type="number" name="Age_Newest_TL" required><br><br>
+
+        <label>Education (1–SSC, 2–12TH, 3–Graduate, 4–Post Graduate):</label><br>
+        <input type="number" name="EDUCATION" required><br><br>
+
+        <label>Marital Status (1 = Married, 0 = Not Married):</label><br>
+        <input type="number" name="MARITALSTATUS_Married" required><br><br>
+
+        <label>Gender (1 = Male, 0 = Female):</label><br>
+        <input type="number" name="GENDER_Male" required><br><br>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    {% if prediction %}
+    <h3>Predicted Credit Risk: {{ prediction }}</h3>
+    {% if confidence %}
+        <h4>Confidence: {{ confidence }} %</h4>
+    {% endif %}
+{% endif %}
+
+
+</body>
+</html>
